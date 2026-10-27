@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "pins": {
+    "northwind_video": {
+      "expected_id": "channel_demo_2048",
+      "expected_name": "Northwind Dental Video",
+      "resolver": {
+        "type": "mock",
+        "identity_id": "channel_demo_2048",
+        "identity_name": "Northwind Dental Video"
+      },
+      "response_id_path": "destination.id",
+      "response_name_path": "destination.name"
+    },
+    "northwind_notifications": {
+      "expected_id": "mailbox_demo_0731",
+      "expected_name": "Northwind Dental Notifications",
+      "resolver": {
+        "type": "file_value",
+        "path": "fixtures/mailbox-identity.json",
+        "id_path": "mailbox.id",
+        "name_path": "mailbox.name"
+      },
+      "response_id_path": "delivery.mailbox_id"
+    }
+  }
+}

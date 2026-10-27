@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "pins": {
+    "video_primary": {
+      "expected_id": "channel_example_123",
+      "expected_name": "Example Brand Video",
+      "resolver": {
+        "type": "mock",
+        "identity_id": "channel_example_123",
+        "identity_name": "Example Brand Video"
+      },
+      "response_id_path": "destination.channel_id",
+      "response_name_path": "destination.channel_name"
+    },
+    "email_transactional": {
+      "expected_id": "mailbox_example_456",
+      "expected_name": "Example Brand Transactional Email",
+      "resolver": {
+        "type": "file_value",
+        "path": "fixtures/mailbox-identity.json",
+        "id_path": "mailbox.id",
+        "name_path": "mailbox.name"
+      },
+      "response_id_path": "delivery.mailbox_id"
+    },
+    "payments_primary": {
+      "expected_id": "account_example_789",
+      "expected_name": "Example Brand Payments",
+      "resolver": {
+        "type": "http_identity",
+        "url": "https://identity.example.com/v1/whoami",
+        "headers": {
+          "Authorization": "Bearer ${PAYMENTS_API_TOKEN}"
+        },
+        "id_path": "account.id",
+        "name_path": "account.name",
+        "timeout": 10
+      },
+      "response_id_path": "payment_link.account_id"
+    }
+  }
+}
